@@ -10,7 +10,7 @@ namespace Nova
     /// <remarks>
     /// Для работы необходимо добавить переменную среды ProxyAPI_API_KEY и положить в ней API_KEY от https://proxyapi.ru/.
     /// </remarks>
-    internal class ProxyApiSynthesizer : ISynthesizer
+    internal class ProxyApiVoiceSynthesizer : IVoiceSynthesizer
     {
         private readonly string _proxyApiUrl = "https://api.proxyapi.ru/openai/v1/audio/speech";
 
@@ -19,11 +19,11 @@ namespace Nova
         /// <summary>
         /// ctor.
         /// </summary>
-        internal ProxyApiSynthesizer() =>
+        internal ProxyApiVoiceSynthesizer() =>
             _apiKey = Environment.GetEnvironmentVariable("ProxyAPI_API_KEY") ?? string.Empty;
 
         ///<inheritdoc/>
-        async Task ISynthesizer.Speak(string textToSpeak)
+        async Task IVoiceSynthesizer.Speak(string textToSpeak)
         {
             OpenAIAPI api = new OpenAIAPI(_apiKey);
             api.ApiUrlFormat = _proxyApiUrl;

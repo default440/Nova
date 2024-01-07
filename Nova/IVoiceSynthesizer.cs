@@ -3,7 +3,7 @@
     /// <summary>
     /// Интерфейс для синтезатора речи.
     /// </summary>
-    internal interface ISynthesizer
+    internal interface IVoiceSynthesizer
     {
         /// <summary>
         /// Метод преобразования текста в речь.
